@@ -1,0 +1,11 @@
+.NavBar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    height: 100px;
+    background: lightblue;
+}
+
+.NavBar a {
+    margin: 0 10px;
+}
