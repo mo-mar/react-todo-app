@@ -1,9 +1,10 @@
 import React from 'react'
+import * as classes from './TodoItem.module.css';
 
-const TodoItem = () => {
+const TodoItem = (props) => {
     return ( 
-        <div>
-            
+        <div className={classes.TodoItem}>
+            {props.item.text}
         </div>
     );
 }
