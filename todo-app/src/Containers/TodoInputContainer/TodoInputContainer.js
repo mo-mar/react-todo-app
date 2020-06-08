@@ -26,6 +26,11 @@ const TodoInputContainer = () => {
         updateTodosList(todos);
     }
 
+    const removeTodo = (todoId) => {
+        let updatedTodos = todosList.filter(todo => todo.id !== todoId);
+        updateTodosList(updatedTodos);
+    }
+
     return ( 
         <div className={classes.TodoInputContainer}>
             <h1>What do you want to get done today?</h1>
@@ -33,7 +38,7 @@ const TodoInputContainer = () => {
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
             />
-            <TodosList todosList={todosList}/>
+            <TodosList todosList={todosList} removeTodo={removeTodo}/>
         </div>
     );
 }
