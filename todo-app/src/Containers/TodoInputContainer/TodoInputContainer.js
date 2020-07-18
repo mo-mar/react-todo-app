@@ -20,10 +20,13 @@ const TodoInputContainer = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        let form = event.target;
         let todos = [...todosList];
         if (!todo.text.length) { return; };
         todos.push(todo);
         updateTodosList(todos);
+        setTodo({text: '', id: nextId()});
+        form.reset();
     }
 
     const removeTodo = (todoId) => {
