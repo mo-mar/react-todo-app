@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TodoItem from '../TodoItem/TodoItem';
 
 // Takes in an array of todo objects. must have text property

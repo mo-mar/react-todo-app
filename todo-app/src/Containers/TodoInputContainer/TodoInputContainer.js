@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TodoInput from '../../Components/TodoInput/TodoInput';
 import TodosList from '../../Components/TodosList/TodosList';
 import * as classes from './TodoInputContainer.module.css';
@@ -7,6 +7,12 @@ import nextId from "react-id-generator";
 const TodoInputContainer = () => {
     const [todo, setTodo] = useState({});
     const [todosList, updateTodosList] = useState([]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            cleanUpTodos(todo);
+        }, 1500); 
+      }, [todosList]);
 
     const handleChange = (event) => {
         let todo = event.target.value;
@@ -33,6 +39,14 @@ const TodoInputContainer = () => {
         let updatedTodos = todosList.filter(todo => todo.id !== todoId);
         updateTodosList(updatedTodos);
     }
+
+    function cleanUpTodos (todoObject) {
+        if (todosList.length > 0) {
+            let filteredTodos = todosList.filter(todo => todo.id === todoObject.id);
+            updateTodosList(filteredTodos);
+        }
+    };
+        
 
     return ( 
         <div className={classes.TodoInputContainer}>
